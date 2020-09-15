@@ -1,6 +1,8 @@
 const video = document.getElementById('video')
-const totalSec = video.duration
-document.getElementById('wrapper').style.height = Math.floor(totalSec) * 500 + 'px'
+video.addEventListener('loadedmetadata', () => {
+  const totalSec = video.duration
+  document.getElementById('wrapper').style.height = Math.floor(totalSec) * 500 + 'px'
+})
 
 function scrollVideo() {
   video.currentTime = window.pageYOffset / 500
